@@ -11,12 +11,19 @@ exports.showIndex = (ctx) => {
   return new Promise((reslove,reject)=>{
     let sql = 'select * from book';
     let data = null;
-    // ctx.body="Hello JSPang";
-    db.base(sql, data, (result)=>{
+    // db.base(sql, data, (result)=>{
+    //   result.sort(keysort('id',false));
+    //   ctx.body = result;
+    //   reslove()
+    // })
+    const connection = db.connection();
+    db.base(connection, sql, data, (result) => {
       result.sort(keysort('id',false));
       ctx.body = result;
       reslove()
-    })
+    });
+    db.close(connection);
+    return;
   })
 }
 
@@ -25,8 +32,17 @@ exports.addBook = (ctx) => {
   return new Promise((reslove,reject)=>{
     const info = ctx.request.body;
     let sql = 'insert into book set ?';
-
-    db.base(sql, info, (result)=>{
+    // db.base(sql, info, (result)=>{
+    //   if(result.affectedRows == 1){
+    //     ctx.body = {flag : 1};
+    //     reslove()
+    //   }else{
+    //     ctx.body = {flag : 2};
+    //     reslove()
+    //   }  
+    // })
+    const connection = db.connection();
+    db.base(connection, sql, info, (result) => {
       if(result.affectedRows == 1){
         ctx.body = {flag : 1};
         reslove()
@@ -34,7 +50,9 @@ exports.addBook = (ctx) => {
         ctx.body = {flag : 2};
         reslove()
       }  
-    })
+    });
+    db.close(connection);
+    return;
   })
 }
 
@@ -43,10 +61,17 @@ exports.getBookById = (ctx) => {
     let id = ctx.params.id;
     let sql = 'select * from book where id=?';
     let data = [id];
-    db.base(sql,data,(result)=>{
+    // db.base(sql,data,(result)=>{
+    //   ctx.body = result[0];
+    //   reslove();
+    // })
+    const connection = db.connection();
+    db.base(connection, sql, data, (result) => {
       ctx.body = result[0];
-      reslove();
-    })
+      reslove(); 
+    });
+    db.close(connection);
+    return;
   })
 };
 
@@ -55,7 +80,17 @@ exports.editBook = (ctx) => {
     let info = ctx.request.body;
     let sql = 'update book set name=?,author=?,category=?,description=? where id=?';
     let data = [info.name,info.author,info.category,info.description,info.id];
-    db.base(sql,data,(result)=>{
+    // db.base(sql,data,(result)=>{
+    //   if(result.affectedRows == 1){
+    //     ctx.body = {flag : 1};
+    //     reslove()
+    //   }else{
+    //     ctx.body = {flag : 2};
+    //     reslove()
+    //   }  
+    // })
+    const connection = db.connection();
+    db.base(connection, sql, data, (result) => {
       if(result.affectedRows == 1){
         ctx.body = {flag : 1};
         reslove()
@@ -63,7 +98,9 @@ exports.editBook = (ctx) => {
         ctx.body = {flag : 2};
         reslove()
       }  
-    })
+    });
+    db.close(connection);
+    return;
   })
 };
 
@@ -72,7 +109,17 @@ exports.deleteBook = (ctx) => {
     let id = ctx.params.id;
     let sql = 'delete from book where id=?';
     let data = [id];
-    db.base(sql,data,(result)=>{
+    // db.base(sql,data,(result)=>{
+    //   if(result.affectedRows == 1){
+    //     ctx.body = {flag : 1};
+    //     reslove()
+    //   }else{
+    //     ctx.body = {flag : 2};
+    //     reslove()
+    //   }  
+    // })
+    const connection = db.connection();
+    db.base(connection, sql, data, (result) => {
       if(result.affectedRows == 1){
         ctx.body = {flag : 1};
         reslove()
@@ -80,7 +127,9 @@ exports.deleteBook = (ctx) => {
         ctx.body = {flag : 2};
         reslove()
       }  
-    })
+    });
+    db.close(connection);
+    return;
   })
 };
 
