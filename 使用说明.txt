@@ -1,0 +1,16 @@
+本demo使用koa2的一个基于nodejs的下一代web框架 + mysql 实现简单数据库增删查改
+
+
+1、先按照依赖
+npm install
+
+2、安装数据库sql
+数据库名：book
+表名：book
+用户名：root
+密码：root
+
+3、启动node
+node index.js
+
+注：单独运行node uploads.js 实现单和多文件上传功能
