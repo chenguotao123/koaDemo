@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="./css/style.css">
   <script type="text/javascript" src="./js/jquery.js"></script>
   <script type="text/javascript" src="./js/template-web.js"></script>
-  <script type="text/javascript" src="./js/dialog.js"></script>
   <script type="text/javascript" src="./js/index.js"></script>
   <script type="text/template" id="indexTpl">
       {{each list}}
@@ -18,6 +17,7 @@
           <td>{{$value.author}}</td>
           <td>{{$value.category}}</td>
           <td>{{$value.description}}</td>
+          <td><img src="{{$value.img}}" alt="无图"></td>
           <td><a href="javascript:;">修改</a>|<a href="javascript:;">删除</a></td>
       </tr>
       {{/each}}
@@ -35,27 +35,43 @@
                 <th>作者</th>
                 <th>分类</th>
                 <th>描述</th>
+                <th>头图</th>
                 <th>操作</th>
             </tr>
         </thead>
         <tbody id="dataList">
-            
+
         </tbody>
     </table>
   </div>
 
-  <p style="font-size: 12px">注：以下为测试单图或多图上传到node后台存储的demo,多图则在选择框按Ctrl多选几张</p>
-  <input type="file" name="file" id="fileInput" multiple="multiple">
-  <div id="imgBox"></div>
-  
+  <div id="noData" style="width:100%;height:100px;background:#efefef;padding:20px;text-align:center;color:#999;display:none;">无数据...</div>
 
-  <form class="form" id="addBookForm">
-    <input type="hidden" name="id">
-    名称：<input type="text" name="name"><br>
-    作者：<input type="text" name="author"><br>
-    分类：<input type="text" name="category"><br>
-    描述：<input type="text" name="description"><br>
-    <input type="button" value="提交">
-  </form>
+  <div class="mask" id="addMask">
+    <div class="dialog">
+      <div class="title"><span class="tit">添加图书</span><a class="closeMask" href="javascript:;">X</a></div>
+      <div class="content">
+        <form id="addBookForm">
+          <input type="hidden" name="id">
+          名称：<input type="text" name="name"></br>
+          作者：<input type="text" name="author"><br>
+          分类：<input type="text" name="category"><br>
+          描述：<input type="text" name="description"><br>
+          <div style="float:left;">头图：</div><img id="imgshow" src="" width="100" height="80" style="float:left;margin-right:10px;"/><br>
+          <input style="display:block;margin-left: 40px;" type="file" name="img" id="fileImg"><br>
+          <input class="btnOk" type="button" value="提交">
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================ 以下的html与图书管理无关，用来单图和多图上传的功能实现 ============== -->
+  <p style="font-size: 12px;margin-top: 30px;">注：以下为测试单图或多图上传到node后台存储的demo,多图则在选择框按Ctrl多选几张</p>
+  <input type="file" name="file" id="fileInput" multiple="multiple">
+  <button id="imgBtn">提交</button>
+  <div id="imgBox"></div>
+
+  <script>
+  </script>
 </body>
 </html>

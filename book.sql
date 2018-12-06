@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2018-12-03 15:06:28
+Date: 2018-12-06 12:27:36
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -25,11 +25,12 @@ CREATE TABLE `book` (
   `author` varchar(255) DEFAULT NULL,
   `category` varchar(255) DEFAULT NULL,
   `description` varchar(255) DEFAULT NULL,
+  `img` text,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM AUTO_INCREMENT=58 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of book
 -- ----------------------------
-INSERT INTO `book` VALUES ('1', '11212', '123', '1222', '1');
-INSERT INTO `book` VALUES ('12', '菜鸟', '小菜鸟', '小说', '菜鸟识图');
+INSERT INTO `book` VALUES ('51', '9', '9', '9', '9', '/uploads/1544069317802.jpg');
+INSERT INTO `book` VALUES ('53', '3', '3', '3', '3', '/uploads/1544069525356.png');

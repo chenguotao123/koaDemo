@@ -5,6 +5,10 @@
         line-height: 50px;
         font-size: 24px;
     }
+    .title .tit {
+      text-align: center;
+      color: #fff;
+    }
     .content {
         background-color: lightblue;
     }
@@ -19,6 +23,14 @@
         border-top: 1px solid blue;
         height: 40px;
         line-height: 40px;
+        position: relative;
+    }
+    .content tbody td img {
+      width: 100px;
+      height: 60px;
+      display: block;
+      margin: 0 auto;
+      padding: 8px 0;
     }
     .form {
         display: none;
@@ -26,4 +38,64 @@
         left: 50%;
         top: 100px;
         margin-left: -110px;
+    }
+
+    /* dialog添加和编辑框 */
+    .mask {
+      display: none;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      z-index: 9;
+    }
+    .mask .dialog {
+      width: 600px;
+      height: 380px;
+      background-color: #ffffff;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      margin: auto;
+      background-color: lightblue;
+    }
+    .mask .title {
+      font-size: 18px;
+      color: #666;
+      text-align: center;
+      background: blue;
+      color: #fff;
+    }
+    .mask .content {
+      padding: 8px 40px;
+      background-color: lightblue;
+      margin: 0 auto;
+    }
+    .mask .content input {
+      padding: 4px 10px;
+      margin-top: 10px;
+    }
+    .mask .content .btnOk {
+      display: block;
+      margin: 0 auto;
+      margin-top: 25px;
+    }
+
+    .closeMask {
+      width: 30px;
+      float: right;
+      padding-right: 15px;
+      text-decoration: none;
+      font-size: 16px;
+      text-align: right;
+      color: #fff
+    }
+    #imgshow {
+      margin-top: 15px;
     }
