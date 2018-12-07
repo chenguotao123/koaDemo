@@ -12,6 +12,8 @@
 
 #### 3、启动node ####
 - node index.js
+- 地址栏打开： http://localhost:3000/
+
 
 注：
 1. 需要有mysql server环境和node环境
