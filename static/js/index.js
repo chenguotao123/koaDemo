@@ -133,7 +133,7 @@ $(function(){
                       // 先上传图片
                       $.ajax({
                         type : "POST",  
-                        url : "/book/upload",  //请求路径
+                        url : "/books/upload",  //请求路径
                         data : formData,  
                         cache: false,
                         contentType: false,
@@ -187,7 +187,7 @@ $(function(){
               // 先上传图片
               $.ajax({
                 type : "POST",  
-                url : "/book/upload",  //请求路径
+                url : "/books/upload",  //请求路径
                 data : formData,  
                 cache: false,
                 contentType: false,

@@ -27,7 +27,7 @@ router.delete('/books/book/:id', async (ctx, next) => {
   await service.deleteBook(ctx);
 });
 
-router.post('/book/upload', multer.array('file') , async (ctx, next) => {
+router.post('/books/upload', multer.array('file') , async (ctx, next) => {
   await service.upLoadBook(ctx);
 });
 
