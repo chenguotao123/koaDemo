@@ -11,7 +11,7 @@
 - 密码：root
 
 #### 3、启动node ####
-- node index.js
+- npm run dev
 - 地址栏打开： http://localhost:3000/
 
 
